@@ -21,6 +21,7 @@ local keyMapping = {
     ["BL-ABC123"] = "brazloucuras",
     ["YR-XYZ789"] = "Yrnk",
     ["AB-456DEF"] = "abuso",
+    ["8D4945C3EF9E79D8"] = "owner",
 }
 
 local function safeText(t) return tostring(t or "") end
