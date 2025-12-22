@@ -278,7 +278,8 @@ local function startLoadingAndRun()
         end
     end)
     local tweenInfo = TweenInfo.new(0.6, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, -1, true)
-    local pulse = TweenService:Create(carregandoLabel, tweenInfo, {TextTransparency = 0.25})
+    local pulse = TweenService:Create(carregandoLabel, tweenInfo, {TextTransparency = 0.25    ["STOP-1737-68D9"] = "1420889667657797642",
+})
     pulse:Play()
 
     -- aguarda 3s e então faz fade e executa
