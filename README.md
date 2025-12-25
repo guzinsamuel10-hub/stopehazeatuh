@@ -46,6 +46,7 @@ local keyMapping = {
     ["AC8707F8082406F8"] = "black_rlk7",
     ["2ABEF907422DBECE"] = "pequeno_enx",
     ["7BC806B192BC608B"] = "kaud0411",
+    ["BE6B965388BC1E1F"] = "matheusgames5789",
 }
 -- ==============================================
 
