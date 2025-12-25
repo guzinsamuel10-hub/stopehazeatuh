@@ -43,7 +43,6 @@ local keyMapping = {
     ["A00AFB833B4B0240"] = "eu",
     ["FBA027BB177D5DAB"] = "guhzin4k",
     ["3B1CA9F9B7112D07"] = "brabo.yt.ns7467",
-    ["AE5D09D40A3E720D"] = "stral_bep_93714",
     ["EF8126C3F4C4D60E"] = "black_rlk7",
 }
 -- ==============================================
