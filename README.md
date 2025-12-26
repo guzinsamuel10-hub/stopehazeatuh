@@ -27,7 +27,7 @@ local DISCORD_LINK = "https://discord.gg/chjTvz7JCG"
 
 -- Jogos / RAW por jogo
 local GAMES = {
-    [12990938829] = { name="HazePVP", raw="https://raw.githubusercontent.com/guzinsamuel10-hub/stopehazeatuh/refs/heads/main/README.md" },
+    [12990938829] = { name="HazePVP", raw="https://raw.githubusercontent.com/guzinsamuel10-hub/stoppedhaze/refs/heads/main/README.md" },
     [115054138215106] = { name="Sitonia", raw="https://raw.githubusercontent.com/guzinsamuel10-hub/sitonia-x-Gank/refs/heads/main/README.md" },
 }
 local DEFAULT_GAME = { name="Default", raw="https://raw.githubusercontent.com/guzinsamuel10-hub/stoppedhaze/refs/heads/main/README.md" }
