@@ -25,11 +25,11 @@ end
 local SAVED_KEY_FILENAME = "stopped_saved_key.txt"
 local DISCORD_LINK = "https://discord.gg/chjTvz7JCG"
 
--- Jogos / RAW por jogo
+-- Jogos / RAW por jogo (ADICIONADO America PVP)
 local GAMES = {
-    [12990938829] = { name="HazePVP", raw="https://raw.githubusercontent.com/guzinsamuel10-hub/stoppedhaze/refs/heads/main/README.md" },
+    [12990938829] = { name="HazePVP", raw="https://raw.githubusercontent.com/guzinsamuel10-hub/stopehazeatuh/refs/heads/main/README.md" },
     [115054138215106] = { name="Sitonia", raw="https://raw.githubusercontent.com/guzinsamuel10-hub/sitonia-x-Gank/refs/heads/main/README.md" },
-    [18110038107] = { name="America", raw="https://github.com/guzinsamuel10-hub/stopped-america/blob/main/README.md" },
+    [18110038107] = { name="America PVP", raw="https://raw.githubusercontent.com/guzinsamuel10-hub/stopped-america/refs/heads/main/README.md" },
 }
 local DEFAULT_GAME = { name="Default", raw="https://raw.githubusercontent.com/guzinsamuel10-hub/stoppedhaze/refs/heads/main/README.md" }
 local PLACE_ID = game.PlaceId or 0
