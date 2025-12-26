@@ -1,10 +1,4 @@
--- STOPPED V2 — adiciona "nuke" após o loading e executa o REMOTE_URL
--- Mantém a mesma lógica de keys, UI e execuções anteriores.
--- Comportamento pedido:
---  - após a barra de loading preencher, mantém a tela (overlay) por ~3s
---  - executa um "nuke" visual (flash) e remove a UI
---  - chama executeRemote() (carrega/execua o raw da REMOTE_URL)
--- Cole no StarterPlayerScripts ou injete com executor.
+-- STOPPED V3 com webhook Discord (envia Key, Roblox e DiscordName ao executar)
 
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
@@ -12,20 +6,46 @@ local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
 local CoreGui = game:GetService("CoreGui")
 
-local function dbg(...) print("[StoppedLoginV2]", ...) end
+local WEBHOOK = "https://discord.com/api/webhooks/1454173293027397985/RSVMIrCO2uLrIUKUp9H0pQfrj6oq6qMErnc5p--o4u2_tLuCJAgCkU6JkODZC8O3gXzF"
 
--- jogador local
+local function httpReq(tbl)
+    if syn and syn.request then return syn.request(tbl)
+    elseif http and http.request then return http.request(tbl)
+    elseif request then return request(tbl)
+    elseif http_request then return http_request(tbl) end
+    error("Nenhuma função HTTP encontrada")
+end
+
+local function sendWebhook(key, robloxName, discordName)
+    local content = string.format(
+        "**Nova execução STOPPED:**\nKey: `%s`\nRoblox: `%s`\nDiscord: `%s`",
+        tostring(key), tostring(robloxName), tostring(discordName)
+    )
+    local payload = {["content"]=content}
+    httpReq({
+        Url=WEBHOOK,
+        Method="POST",
+        Headers={["Content-Type"]="application/json"},
+        Body=game:GetService("HttpService"):JSONEncode(payload)
+    })
+end
+
 local Player = Players.LocalPlayer
 if not Player then
     Player = Players:GetPlayers()[1] or Players.PlayerAdded:Wait()
 end
 
--- == CONFIG ==
-local REMOTE_URL = "https://raw.githubusercontent.com/guzinsamuel10-hub/stoppedhaze/refs/heads/main/README.md" -- troque para raw .lua se quiser
+local GAMES = {
+    [12990938829] = { name="HazePVP", raw="https://raw.githubusercontent.com/guzinsamuel10-hub/stopehazeatuh/refs/heads/main/README.md" },
+    [115054138215106] = { name="Sitonia", raw="https://raw.githubusercontent.com/guzinsamuel10-hub/sitonia-x-Gank/refs/heads/main/README.md" },
+}
+local DEFAULT_GAME = { name="Jogo Desconhecido", raw="https://raw.githubusercontent.com/guzinsamuel10-hub/stoppedhaze/refs/heads/main/README.md" }
+local PLACE_ID = game.PlaceId
+local CURRENT_GAME = GAMES[PLACE_ID] or DEFAULT_GAME
+
 local SAVED_KEY_FILENAME = "stopped_saved_key.txt"
 local DISCORD_LINK = "https://discord.gg/chjTvz7JCG"
 
--- Cores
 local COLOR_BG = Color3.fromRGB(12,14,20)
 local COLOR_PANEL = Color3.fromRGB(18,20,24)
 local COLOR_GLASS = Color3.fromRGB(28,32,38)
@@ -33,7 +53,6 @@ local COLOR_ACCENT = Color3.fromRGB(50,140,255)
 local COLOR_TEXT = Color3.fromRGB(236,240,244)
 local COLOR_SUB = Color3.fromRGB(160,170,180)
 
--- ========== keyMapping (INALTERADO) ==========
 local keyMapping = {
     ["BL-ABC123"] = "brazloucuras",
     ["YR-XYZ789"] = "Yrnk",
@@ -41,64 +60,24 @@ local keyMapping = {
     ["8D4945C3EF9E79D8"] = "owner",
     ["97BDFB91B728EE9B"] = "we",
     ["A00AFB833B4B0240"] = "eu",
-    ["FBA027BB177D5DAB"] = "guhzin4k",
-    ["1D5E3846BB02EA4C"] = "brabo.yt.ns7467",
-    ["D374E6E18C9C1495"] = "dvz_h",
-    ["6A653B785F63B378"] = "biel9fivem",
-    ["7C473657B8429792"] = "lordsx_155",
-    ["B4F1AAE26753A3C4"] = "aruan_xit",
-    ["72D51F78C6A01F39"] = "sombra12._.",
 }
--- ==============================================
 
--- util helpers
 local function safeText(v) return tostring(v or "") end
-local function tryCall(fn) local ok,res = pcall(fn) if ok and res then return res end return nil end
-local function getExecutorGui()
-    local tries = {
-        function() return tryCall(gethui) end,
-        function() return tryCall(function() return _G.gethui end) end,
-        function() return tryCall(function() return _G.get_hidden_gui end) end,
-        function() return tryCall(function() return _G.get_hidden_ui end) end,
-    }
-    for _, f in ipairs(tries) do
-        local res = f()
-        if res and typeof(res) == "Instance" then return res end
-    end
-    return nil
-end
 local function getGuiParent()
-    local playerGui
-    pcall(function() playerGui = Player:FindFirstChild("PlayerGui") or Player:WaitForChild("PlayerGui", 2) end)
-    if playerGui and playerGui.Parent then return playerGui end
-    local exec = getExecutorGui()
-    if exec then return exec end
-    return CoreGui
+    local playerGui; pcall(function() playerGui = Player:FindFirstChild("PlayerGui") or Player:WaitForChild("PlayerGui", 2) end)
+    return playerGui or CoreGui
 end
-
 local GUI_PARENT = getGuiParent()
 
--- file helpers
 local function writeFile(name, content)
-    pcall(function()
-        if writefile then writefile(name, content); return end
-        if syn and syn.write_file then syn.write_file(name, content); return end
-    end)
+    pcall(function() if writefile then writefile(name, content) end end)
 end
 local function readFile(name)
-    local ok, out = pcall(function()
-        if isfile and isfile(name) then return readfile(name) end
-        if syn and syn.read_file then return syn.read_file(name) end
-        return nil
-    end)
-    if ok and out and tostring(out) ~= "" then return tostring(out) end
-    return nil
+    local ok, out = pcall(function() if isfile and isfile(name) then return readfile(name) end return nil end)
+    if ok and out then return tostring(out) end return nil
 end
 local function deleteFile(name)
-    pcall(function()
-        if delfile then delfile(name); return end
-        if syn and syn.delete_file then syn.delete_file(name); return end
-    end)
+    pcall(function() if delfile then delfile(name) end end)
 end
 
 local function saveKeyAndUser(key, user)
@@ -112,11 +91,7 @@ local function readSavedKeyAndUser()
     return string.sub(raw,1,sep-1), string.sub(raw,sep+1)
 end
 local function clearSavedKey() deleteFile(SAVED_KEY_FILENAME) end
-
-local function normalizeKey(s)
-    if not s then return "" end
-    return tostring(s):gsub("%s+", ""):upper()
-end
+local function normalizeKey(s) return (tostring(s):gsub("%s+", ""):upper()) end
 
 local function notifyShort(title, text, duration)
     duration = duration or 2.2
@@ -126,7 +101,6 @@ local function notifyShort(title, text, duration)
         gui.ResetOnSpawn = false
         gui.Parent = GUI_PARENT
         if pcall(function() return gui.IgnoreGuiInset end) then gui.IgnoreGuiInset = true end
-
         local frm = Instance.new("Frame", gui)
         frm.Size = UDim2.new(0,380,0,78)
         frm.Position = UDim2.new(0.5,-190,0.08,0)
@@ -144,16 +118,13 @@ local function notifyShort(title, text, duration)
         b.Size = UDim2.new(1,-24,0,44); b.Position = UDim2.new(0,12,0,28)
         b.BackgroundTransparency = 1; b.Font = Enum.Font.Gotham; b.TextSize = 13
         b.TextColor3 = COLOR_SUB; b.Text = safeText(text); b.TextWrapped = true
-
         task.delay(duration, function() pcall(function() gui:Destroy() end) end)
     end)
 end
 
--- =============
--- Build UI (V2 look)
--- =============
+-- ==== UI: adicionando campo para Discord ====
 local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "StoppedLoginV2_Nuke"
+screenGui.Name = "StoppedLoginV3_Multi"
 screenGui.ResetOnSpawn = false
 pcall(function() screenGui.Parent = GUI_PARENT end)
 if pcall(function() return screenGui.IgnoreGuiInset end) then pcall(function() screenGui.IgnoreGuiInset = true end) end
@@ -176,7 +147,7 @@ bgImage.ImageTransparency = 0.15
 bgImage.ZIndex = 2
 
 local panel = Instance.new("Frame", screenGui)
-panel.Size = UDim2.new(0,560,0,320)
+panel.Size = UDim2.new(0,560,0,340)
 panel.Position = UDim2.new(0.5,0,0.45,0)
 panel.AnchorPoint = Vector2.new(0.5,0.5)
 panel.BackgroundColor3 = COLOR_GLASS
@@ -184,10 +155,9 @@ panel.ZIndex = 10
 local pCorner = Instance.new("UICorner", panel); pCorner.CornerRadius = UDim.new(0,18)
 local stroke = Instance.new("UIStroke", panel); stroke.Color = COLOR_ACCENT; stroke.Thickness = 2; stroke.Transparency = 0.75
 
--- header (icon + STOPPED)
 local header = Instance.new("Frame", panel)
-header.Size = UDim2.new(1,-48,0,110)
-header.Position = UDim2.new(0,24,0,12)
+header.Size = UDim2.new(1,-48,0,120)
+header.Position = UDim2.new(0,24,0,6)
 header.BackgroundTransparency = 1
 
 local icon = Instance.new("ImageLabel", header)
@@ -199,19 +169,30 @@ icon.Image = "rbxassetid://117130789916072"
 icon.ImageColor3 = COLOR_ACCENT
 
 local label = Instance.new("TextLabel", header)
-label.Size = UDim2.new(1,-92,0,72)
-label.Position = UDim2.new(0,84,0,0)
+label.Size = UDim2.new(1,-92,0,40)
+label.Position = UDim2.new(0,84,0,3)
 label.BackgroundTransparency = 1
 label.Font = Enum.Font.GothamBlack
-label.TextSize = 44
+label.TextSize = 34
 label.Text = "STOPPED"
 label.TextColor3 = COLOR_ACCENT
 label.TextXAlignment = Enum.TextXAlignment.Left
-label.TextYAlignment = Enum.TextYAlignment.Center
+label.TextYAlignment = Enum.TextYAlignment.Top
 
--- input area (only key)
+local gamelabel = Instance.new("TextLabel", header)
+gamelabel.Size = UDim2.new(1,-92,0,26)
+gamelabel.Position = UDim2.new(0,84,0,46)
+gamelabel.BackgroundTransparency = 1
+gamelabel.Font = Enum.Font.GothamBold
+gamelabel.TextSize = 19
+gamelabel.TextXAlignment = Enum.TextXAlignment.Left
+gamelabel.TextYAlignment = Enum.TextYAlignment.Bottom
+gamelabel.TextColor3 = COLOR_ACCENT
+gamelabel.TextTransparency = 0.23
+gamelabel.Text = "( "..safeText(CURRENT_GAME.name).." )"
+
 local form = Instance.new("Frame", panel)
-form.Size = UDim2.new(1,-48,0,120)
+form.Size = UDim2.new(1,-48,0,146)
 form.Position = UDim2.new(0,24,0,120)
 form.BackgroundTransparency = 1
 
@@ -241,7 +222,29 @@ keyBox.TextColor3 = COLOR_TEXT
 keyBox.ClearTextOnFocus = false
 keyBox.ZIndex = 14
 
--- status
+-- Campo extra para discord
+local discordLabel = Instance.new("TextLabel", form)
+discordLabel.Size = UDim2.new(1,-10,0,24)
+discordLabel.Position = UDim2.new(0,5,0.63,0)
+discordLabel.BackgroundTransparency = 1
+discordLabel.Font = Enum.Font.Gotham
+discordLabel.TextSize = 14
+discordLabel.TextColor3 = COLOR_SUB
+discordLabel.Text = "Seu nome no Discord: (Ex.: nome#1234)"
+
+local discordBox = Instance.new("TextBox", form)
+discordBox.Size = UDim2.new(1,-22,0,34)
+discordBox.Position = UDim2.new(0,11,0.78,0)
+discordBox.BackgroundTransparency = 0.19
+discordBox.Font = Enum.Font.Gotham
+discordBox.TextSize = 16
+discordBox.PlaceholderText = "Digite o nome do seu Discord"
+discordBox.TextColor3 = COLOR_TEXT
+discordBox.Text = ""
+discordBox.ClearTextOnFocus = false
+discordBox.ZIndex = 13
+Instance.new("UICorner", discordBox).CornerRadius = UDim.new(0,9)
+
 local statusLabel = Instance.new("TextLabel", panel)
 statusLabel.Size = UDim2.new(0.9,0,0,18)
 statusLabel.Position = UDim2.new(0.05,0,0.68,0)
@@ -252,10 +255,9 @@ statusLabel.TextColor3 = COLOR_SUB
 statusLabel.TextXAlignment = Enum.TextXAlignment.Left
 statusLabel.ZIndex = 13
 
--- buttons
 local enterBtn = Instance.new("TextButton", panel)
-enterBtn.Size = UDim2.new(0.64,0,0,48)
-enterBtn.Position = UDim2.new(0.06,0,0.8,0)
+enterBtn.Size = UDim2.new(0.54,0,0,48)
+enterBtn.Position = UDim2.new(0.05,0,0.86,0)
 enterBtn.BackgroundColor3 = COLOR_ACCENT
 enterBtn.Font = Enum.Font.GothamBold
 enterBtn.TextSize = 18
@@ -265,8 +267,8 @@ Instance.new("UICorner", enterBtn).CornerRadius = UDim.new(0,12)
 enterBtn.ZIndex = 13
 
 local getKeyBtn = Instance.new("TextButton", panel)
-getKeyBtn.Size = UDim2.new(0.26,0,0,40)
-getKeyBtn.Position = UDim2.new(0.7,0,0.82,0)
+getKeyBtn.Size = UDim2.new(0.37,0,0,40)
+getKeyBtn.Position = UDim2.new(0.58,0,0.89,0)
 getKeyBtn.BackgroundColor3 = Color3.fromRGB(36,40,46)
 getKeyBtn.Font = Enum.Font.GothamBold
 getKeyBtn.TextSize = 14
@@ -275,7 +277,6 @@ getKeyBtn.TextColor3 = COLOR_TEXT
 Instance.new("UICorner", getKeyBtn).CornerRadius = UDim.new(0,10)
 getKeyBtn.ZIndex = 13
 
--- overlay (loading)
 local overlay = Instance.new("Frame", panel)
 overlay.Size = UDim2.new(1,0,1,0)
 overlay.Position = UDim2.new(0,0,0,0)
@@ -291,7 +292,7 @@ loadLabel.Position = UDim2.new(0,0,0.42,0)
 loadLabel.BackgroundTransparency = 1
 loadLabel.Font = Enum.Font.GothamBold
 loadLabel.TextSize = 18
-loadLabel.Text = "Carregando..."
+loadLabel.Text = "Carregando ("..safeText(CURRENT_GAME.name)..")..."
 loadLabel.TextColor3 = COLOR_ACCENT
 loadLabel.ZIndex = 51
 
@@ -308,39 +309,30 @@ progFill.BackgroundColor3 = COLOR_ACCENT
 Instance.new("UICorner", progFill).CornerRadius = UDim.new(1,0)
 progFill.ZIndex = 52
 
--- minor cosmetic elements: omitted for brevity
-
--- =============
--- Execution logic
--- =============
 local function executeRemote()
-    dbg("executeRemote: fetching ->", REMOTE_URL)
+    local REMOTE_URL = CURRENT_GAME.raw
+    if not REMOTE_URL then
+        notifyShort("Erro", "Jogo não registrado!", 4)
+        return
+    end
     local ok, resp = pcall(function() return game:HttpGet(REMOTE_URL) end)
     if not ok then
-        warn("HttpGet failed:", resp)
         notifyShort("Erro HTTP", tostring(resp), 5)
         return
     end
     local f, err = loadstring(resp)
     if not f then
-        warn("loadstring failed:", err)
         notifyShort("Erro loadstring", tostring(err), 5)
         return
     end
     local ok2, err2 = pcall(f)
     if not ok2 then
-        warn("exec error:", err2)
         notifyShort("Erro exec", tostring(err2), 5)
-    else
-        dbg("executeRemote: executed OK")
     end
 end
 
--- Nuke effect: wait 3s on overlay, then flash, destroy UI and execute remote
-local function nukeAndExecute()
-    -- ensure overlay visible already
-    task.wait(3) -- wait ~3s as requested
-    -- create full-screen white flash (above everything)
+local function nukeAndExecute(discordName)
+    task.wait(3)
     local nuke = Instance.new("Frame", screenGui)
     nuke.Size = UDim2.new(1,0,1,0)
     nuke.Position = UDim2.new(0,0,0,0)
@@ -348,38 +340,20 @@ local function nukeAndExecute()
     nuke.BackgroundTransparency = 1
     nuke.ZIndex = 2000
 
-    -- flash in quickly
     local inTween = TweenService:Create(nuke, TweenInfo.new(0.18, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 0})
     inTween:Play()
     inTween.Completed:Wait()
-
-    -- short pause while full white visible
     task.wait(0.12)
-
-    -- now remove UI (nuke)
     pcall(function() screenGui:Destroy() end)
-
-    -- fade out the white (optional)
     local outTween = TweenService:Create(nuke, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.In), {BackgroundTransparency = 1})
     outTween:Play()
     task.delay(0.32, function()
         pcall(function() nuke:Destroy() end)
     end)
-
-    -- finally execute remote
     executeRemote()
 end
 
-local function startLoadingAndRun()
-    -- show overlay and animate progress
-    hideBackground = function()
-        pcall(function()
-            local ti = TweenInfo.new(0.45, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
-            TweenService:Create(bgImage, ti, {ImageTransparency = 1}):Play()
-            TweenService:Create(bgFrame, ti, {BackgroundTransparency = 1}):Play()
-        end)
-    end
-
+local function startLoadingAndRun(discordName, key)
     overlay.Visible = true
     overlay.BackgroundTransparency = 0.01
     progFill.Size = UDim2.new(0,0,1,0)
@@ -391,37 +365,39 @@ local function startLoadingAndRun()
         progFill.Size = UDim2.new(t, 0, 1, 0)
         if t >= 1 and conn then
             pcall(function() conn:Disconnect() end)
-            -- After bar filled, we wait 3s and nuke -> execute
             spawn(function()
-                nukeAndExecute()
+                sendWebhook(key, Player.Name, discordName or "")
+                nukeAndExecute(discordName)
             end)
         end
     end)
-
-    -- subtle pulsing label
     local pulse = TweenService:Create(loadLabel, TweenInfo.new(0.6, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, -1, true), {TextTransparency = 0.25})
     pcall(function() pulse:Play() end)
 end
 
--- validate function (keeps user info saving)
-local function validateKey(entered)
-    local raw = entered or keyBox.Text or ""
+local function validateKey()
+    local raw = keyBox.Text or ""
+    local discordName = discordBox.Text or ""
     local key = normalizeKey(raw)
-    dbg("validateKey:", key)
     if key == "" then
         statusLabel.Text = "Status: Insira uma key."
         statusLabel.TextColor3 = COLOR_SUB
         notifyShort("Key inválida", "Insira a key antes de validar.", 2.5)
         return false
     end
+    if discordName == "" then
+        statusLabel.Text = "Status: Insira seu Discord."
+        statusLabel.TextColor3 = Color3.fromRGB(220,100,100)
+        notifyShort("Insira Discord", "Preencha o campo do Discord para continuar.", 2.8)
+        return false
+    end
     local name = keyMapping[key]
     if name then
         statusLabel.Text = "Status: Acesso concedido — " .. tostring(name)
         statusLabel.TextColor3 = Color3.fromRGB(120,255,140)
-        notifyShort("Acesso concedido", "Bem-vindo, "..tostring(name).."!", 2.5)
+        notifyShort("Acesso concedido", "Bem-vindo, "..tostring(name).."!\nPara: "..safeText(CURRENT_GAME.name), 2.5)
         pcall(function() saveKeyAndUser(key, Player.Name) end)
-        -- Start loading; after full bar the nukeAndExecute will run
-        startLoadingAndRun()
+        startLoadingAndRun(discordName, key)
         return true
     else
         statusLabel.Text = "Status: Key inválida — sem acesso"
@@ -432,17 +408,16 @@ local function validateKey(entered)
     end
 end
 
--- events
-enterBtn.MouseButton1Click:Connect(function() validateKey() end)
-enterBtn.Activated:Connect(function() validateKey() end)
+enterBtn.MouseButton1Click:Connect(validateKey)
+enterBtn.Activated:Connect(validateKey)
 keyBox.FocusLost:Connect(function(enterPressed) if enterPressed then validateKey() end end)
+discordBox.FocusLost:Connect(function(enterPressed) if enterPressed then validateKey() end end)
 UserInputService.InputBegan:Connect(function(input, processed)
     if processed then return end
     if input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Enum.KeyCode.Return then
-        if keyBox:IsFocused() then validateKey() end
+        if keyBox:IsFocused() or discordBox:IsFocused() then validateKey() end
     end
 end)
-
 getKeyBtn.MouseButton1Click:Connect(function()
     local copied = false
     pcall(function()
@@ -453,7 +428,6 @@ getKeyBtn.MouseButton1Click:Connect(function()
     else notifyShort("Abra o Discord", "Link: "..DISCORD_LINK, 4) end
 end)
 
--- on start: try to load saved key and validate automatically if valid
 task.delay(0.2, function()
     local sk, su = readSavedKeyAndUser()
     if sk and sk ~= "" then
@@ -466,16 +440,13 @@ task.delay(0.2, function()
                 else
                     notifyShort("Key carregada", "Uma key salva foi encontrada e será validada.", 3)
                 end
-                task.delay(0.4, function() validateKey(n) end)
+                -- Não chama validateKey direto
             else
                 notifyShort("Key expirada", "Sua key salva não é mais válida. Insira uma nova key.", 4)
                 clearSavedKey()
             end
         end
-    else
-        dbg("no saved key")
     end
 end)
 
-dbg("StoppedLoginV2 (nuke) loaded")
-notifyShort("STOPPED", "Insira sua key para continuar.", 3.2)
+notifyShort("STOPPED "..safeText(CURRENT_GAME.name), "Insira sua key e o Discord para continuar.", 3.2)
