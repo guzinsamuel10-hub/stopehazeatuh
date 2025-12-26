@@ -45,6 +45,7 @@ local keyMapping = {
     ["1D5E3846BB02EA4C"] = "brabo.yt.ns7467",
     ["EEF9817000241971"] = "rikelve0792",
     ["C8B2B8413A376453"] = "sombra12._.",
+    ["C32B73FAFCCD9C65"] = "aruan_xit",
 }
 -- ==============================================
 
