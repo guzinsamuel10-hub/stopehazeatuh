@@ -59,6 +59,7 @@ local keyMapping = {
     ["C78006DAE49C7114"] = "q5f1",
     ["A86ED488B944B459"] = "naotemprovanaoacusa",
     ["F392AC5991DE0D41"] = "tropadofloter",
+    ["180334BFE593A18B"] = "rikelve0792",
 }
 -- ==============================================
 
