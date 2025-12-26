@@ -47,6 +47,7 @@ local keyMapping = {
     ["C8B2B8413A376453"] = "sombra12._.",
     ["C32B73FAFCCD9C65"] = "aruan_xit",
     ["8F615CC96C52A2D5"] = "dgzin87_",
+    ["E1F249D44F378AD4"] = "guhzin4k",
 }
 -- ==============================================
 
