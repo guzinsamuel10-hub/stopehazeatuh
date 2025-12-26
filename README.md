@@ -56,6 +56,7 @@ local keyMapping = {
     ["B4F1AAE26753A3C4"] = "aruan_xit",
     ["F392AC5991DE0D41"] = "tropadofloter",
     ["1EF075044260F2A6"] = "054deric",
+    ["B243A951F8DBFAD3"] = "dkzin0109",
 }
 -- ==============================================
 
