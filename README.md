@@ -52,7 +52,6 @@ local keyMapping = {
     ["97BDFB91B728EE9B"] = "we",
     ["A00AFB833B4B0240"] = "eu",
     ["FBA027BB177D5DAB"] = "guhzin4k",
-    ["D374E6E18C9C1495"] = "dvz_h",
     ["B4F1AAE26753A3C4"] = "aruan_xit",
     ["F392AC5991DE0D41"] = "tropadofloter",
     ["180334BFE593A18B"] = "rikelve0792",
