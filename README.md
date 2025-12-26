@@ -55,7 +55,6 @@ local keyMapping = {
     ["1D5E3846BB02EA4C"] = "brabo.yt.ns7467",
     ["D374E6E18C9C1495"] = "dvz_h",
     ["B4F1AAE26753A3C4"] = "aruan_xit",
-    ["A86ED488B944B459"] = "naotemprovanaoacusa",
     ["F392AC5991DE0D41"] = "tropadofloter",
     ["180334BFE593A18B"] = "rikelve0792",
 }
