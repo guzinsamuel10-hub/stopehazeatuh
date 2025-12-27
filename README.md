@@ -64,6 +64,7 @@ local keyMapping = {
     ["A9F7E6E3A6EB908E"] = "aruan_xit",
     ["242281799AE428F0"] = "zr100midia",
     ["1A774C8B611B0A1E"] = "silvacacadordext",
+    ["F012E44876109831"] = "black_rlk7",
 }
 -- ==============================================
 
