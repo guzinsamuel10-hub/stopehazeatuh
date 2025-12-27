@@ -152,6 +152,7 @@ local keyMapping = {
     ["CA98FA22C69754C5"] = "pedrotl03",
     ["BCD639473519BA2D"] = "samueje382.",
     ["F892D2E5BA16AF66"] = "daniel083909",
+    ["910E99095D1994B6"] = "alwaysfighting",
 }
 -- ==============================================
 
