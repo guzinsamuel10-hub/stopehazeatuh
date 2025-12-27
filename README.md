@@ -166,6 +166,7 @@ local keyMapping = {
     ["5063F9DFCEECCC79"] = "tropadofloter",
     ["C4DDFAB49BDA01E1"] = "relaxado57_87245",
     ["5FD3790F8F3F2A99"] = "manipulacoess",
+    ["233A7F839BC8E7CB"] = "dgzin87_",
 }
 -- ==============================================
 
