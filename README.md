@@ -206,6 +206,7 @@ local keyMapping = {
     ["114DAC9DF5F859BC"] = "bydanzin",
     ["54F36FD4E5A93DFD"] = "malelementoo_",
     ["F3FDFA6266F5E233"] = "weslleyxp_51071",
+    ["F587147A955F6D7B"] = "maguranes_24174",
 }
 -- ==============================================
 
