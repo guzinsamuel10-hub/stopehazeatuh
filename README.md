@@ -163,6 +163,7 @@ local keyMapping = {
     ["465D06DC0598602D"] = "didel_th.",
     ["2CC81AB1EE462ACE"] = "gregori0224",
     ["5E170331BC5CABB7"] = "vini01020_zx_17324",
+    ["5063F9DFCEECCC79"] = "tropadofloter",
 }
 -- ==============================================
 
