@@ -98,6 +98,7 @@ local keyMapping = {
     ["82D6E6E6B640A261"] = "el_speed_",
     ["07FD41FBCC5A657E"] = "menorodio123",
     ["1DB15171925446AA"] = "dubemlkk.",
+    ["592BE75417FC9E5E"] = "rumuru0077",
 }
 -- ==============================================
 
