@@ -173,6 +173,7 @@ local keyMapping = {
     ["476C30220DCE4DFD"] = "buzanfudodaraia",
     ["65763DF815FD03CF"] = "tg_rlk_33118",
     ["A0B95FE1F73E845D"] = "bn_1347_62090",
+    ["38735B0F4A1E1DAA"] = "mykage10",
 }
 -- ==============================================
 
