@@ -58,6 +58,7 @@ local keyMapping = {
     ["1EF075044260F2A6"] = "054deric",
     ["B243A951F8DBFAD3"] = "dkzin0109",
     ["16A2907B6D9411B8"] = "domdelas",
+    ["1FEC4EA41CBF5CEE"] = "macieljesusdeoliveira",
 }
 -- ==============================================
 
