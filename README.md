@@ -122,6 +122,7 @@ local keyMapping = {
     ["CD9AA7C6D40D6BFC"] = "fdgdgfdgdfgdfgdfgdfg",
     ["0150BF099E9A9E70"] = "054deric",
     ["4F6C9F9E7EFF3D68"] = "brabo.yt.ns7467",
+    ["3645FFE9D47838DA"] = "pequeno_enx",
 }
 -- ==============================================
 
