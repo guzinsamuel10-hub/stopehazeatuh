@@ -155,6 +155,7 @@ local keyMapping = {
     ["910E99095D1994B6"] = "alwaysfighting",
     ["598D1DC1AB774DF6"] = "akay7._",
     ["618AFD1BEC15FE59"] = "xandao_75498",
+    ["55A68E69D6668CCD"] = "dark_0093",
 }
 -- ==============================================
 
