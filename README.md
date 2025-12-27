@@ -125,6 +125,7 @@ local keyMapping = {
     ["3645FFE9D47838DA"] = "pequeno_enx",
     ["692926998010D466"] = "dark7ven",
     ["E3E75B0AD300348B"] = "fabziin",
+    ["5BE23A30818B8008"] = "warescripts.",
 }
 -- ==============================================
 
