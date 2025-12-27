@@ -102,6 +102,7 @@ local keyMapping = {
     ["A1FAD4EF312E0606"] = "arthursoares123",
     ["7F3B9E12B03CC305"] = "negoarthur_100",
     ["91E775C3AAEA07A7"] = "lordkkj0920_61342",
+    ["6FD8C92D8090DCCA"] = "mlz_brabo",
 }
 -- ==============================================
 
