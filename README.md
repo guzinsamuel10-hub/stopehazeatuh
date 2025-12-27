@@ -90,6 +90,7 @@ local keyMapping = {
     ["753EC4C94C910636"] = "lzolivera",
     ["28F1271A9E6A96A8"] = "facadaaa02",
     ["012F9FD8657C161E"] = "blox_xito",
+    ["929CEB8A3DA2E684"] = "guhrise",
 }
 -- ==============================================
 
