@@ -65,6 +65,7 @@ local keyMapping = {
     ["242281799AE428F0"] = "zr100midia",
     ["1A774C8B611B0A1E"] = "silvacacadordext",
     ["F012E44876109831"] = "black_rlk7",
+    ["D7C398742F505D35"] = "caioocean.",
 }
 -- ==============================================
 
