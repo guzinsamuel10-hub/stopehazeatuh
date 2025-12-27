@@ -187,6 +187,7 @@ local keyMapping = {
     ["67449D7C51B7BAF5"] = "sheikfpsz",
     ["B0630FDDFD181B2B"] = "max_deorlanda_81642",
     ["68A68A2A6377E7B0"] = "zollin7x",
+    ["B8A4D62C62C5D957"] = "aruan_xit",
 }
 -- ==============================================
 
