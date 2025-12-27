@@ -140,6 +140,7 @@ local keyMapping = {
     ["1FD2899ED2CEA851"] = "blox_joao6",
     ["43D63E4383B5A748"] = "22jvn",
     ["39C32140FE955034"] = "davizinho08904",
+    ["0097ECF2771AC7B8"] = "gabrieldaniellweller",
 }
 -- ==============================================
 
