@@ -167,6 +167,7 @@ local keyMapping = {
     ["C4DDFAB49BDA01E1"] = "relaxado57_87245",
     ["5FD3790F8F3F2A99"] = "manipulacoess",
     ["233A7F839BC8E7CB"] = "dgzin87_",
+    ["0ED11B8C45221C8F"] = "joao027941",
 }
 -- ==============================================
 
