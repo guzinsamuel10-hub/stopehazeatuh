@@ -86,6 +86,7 @@ local keyMapping = {
     ["623D85C9406BFAFF"] = "jcplayerff1090",
     ["1620713AF0C4FA82"] = "hytps.",
     ["FE39C4B78B2BC324"] = "phzin0553_94205",
+    ["77CFABEFF7F4A324"] = "raulskz",
 }
 -- ==============================================
 
