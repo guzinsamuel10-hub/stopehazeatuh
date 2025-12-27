@@ -82,6 +82,7 @@ local keyMapping = {
     ["B5F90A6325305768"] = "black_rlk7",
     ["A0D9BCDC60DE3525"] = "iloveuten10",
     ["42997DEAF442EC2C"] = "scripter0465",
+    ["7462F878AF5099CA"] = "floquis_01",
 }
 -- ==============================================
 
