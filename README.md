@@ -233,6 +233,7 @@ local keyMapping = {
     ["28D7AE6614E11588"] = "catedralvoice",
     ["8DEE6EEDD73C3432"] = "recruta67",
     ["530933F6676DB9F1"] = "marcos8175",
+    ["7D18D12089BEBFFF"] = "erik_tt",
 }
 -- ==============================================
 
