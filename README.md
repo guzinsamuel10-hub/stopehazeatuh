@@ -181,6 +181,7 @@ local keyMapping = {
     ["D00D51F0EFE64D7A"] = "vemdrami",
     ["099E750B5CB0D5D5"] = "miura500k",
     ["E45D185288B50E9B"] = "lcevida244",
+    ["8466B4E843C4739E"] = "tentanadaem",
 }
 -- ==============================================
 
