@@ -210,6 +210,7 @@ local keyMapping = {
     ["CD33D4D448BC9574"] = "krazytzz",
     ["96517C91F5F0B36B"] = "cheinp",
     ["858E198752D10D42"] = "flilep",
+    ["DC3D1774DCE1EA6F"] = "gustaahsx",
 }
 -- ==============================================
 
