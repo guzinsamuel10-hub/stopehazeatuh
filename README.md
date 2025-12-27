@@ -200,6 +200,7 @@ local keyMapping = {
     ["0F77E8B1265546A7"] = "jagakaf",
     ["A22AFD4FCFAF668E"] = "mitzz.cr",
     ["C9627D6042746D94"] = "2k.oproprio",
+    ["094BB63C71770DA3"] = "gustavosamueil1",
 }
 -- ==============================================
 
