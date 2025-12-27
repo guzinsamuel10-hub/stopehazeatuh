@@ -195,6 +195,7 @@ local keyMapping = {
     ["ACC47B96362D0955"] = "vendo.hats.",
     ["35915067928285B5"] = "daniel.1v5",
     ["E7B1FEC2C9B7E0A4"] = "cp24h48",
+    ["ED70D175E44C3FBF"] = "vitor_da_nicoly",
 }
 -- ==============================================
 
