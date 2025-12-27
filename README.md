@@ -141,6 +141,7 @@ local keyMapping = {
     ["43D63E4383B5A748"] = "22jvn",
     ["39C32140FE955034"] = "davizinho08904",
     ["0097ECF2771AC7B8"] = "gabrieldaniellweller",
+    ["891D4C30641F9AAB"] = "lordsx_155",
 }
 -- ==============================================
 
