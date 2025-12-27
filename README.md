@@ -211,6 +211,7 @@ local keyMapping = {
     ["96517C91F5F0B36B"] = "cheinp",
     ["858E198752D10D42"] = "flilep",
     ["DC3D1774DCE1EA6F"] = "gustaahsx",
+    ["508CA9EABF067939"] = "biel9fivem",
 }
 -- ==============================================
 
