@@ -224,6 +224,7 @@ local keyMapping = {
     ["8D5D44D9865A9263"] = "toxicfov.",
     ["E7A9B9EDABEBBCCF"] = "kodakbomnovo22",
     ["8D738A548C998A31"] = "luizluizbrabao157",
+    ["C95354BEFB3D28A0"] = "lucas_2.0.",
 }
 -- ==============================================
 
