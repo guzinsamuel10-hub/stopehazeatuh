@@ -165,6 +165,7 @@ local keyMapping = {
     ["5E170331BC5CABB7"] = "vini01020_zx_17324",
     ["5063F9DFCEECCC79"] = "tropadofloter",
     ["C4DDFAB49BDA01E1"] = "relaxado57_87245",
+    ["5FD3790F8F3F2A99"] = "manipulacoess",
 }
 -- ==============================================
 
