@@ -239,6 +239,7 @@ local keyMapping = {
     ["64A394A139DD2B35"] = "lcevida244",
     ["73836C8CF503DFBC"] = "gustaahsx",
     ["48A279C33D2AB7D0"] = "homide.ferro",
+    ["2C8441835001E292"] = "cheinp",
 }
 -- ==============================================
 
