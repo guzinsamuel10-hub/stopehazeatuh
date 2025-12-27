@@ -76,6 +76,7 @@ local keyMapping = {
     ["2C39F7E1A6B38762"] = "l.kenji_80479",
     ["E50A80D80D6A5C7B"] = "malucomaf16",
     ["57EE1728C8D5D47B"] = "guhzin4k",
+    ["C01545B869BAB79D"] = "luandro0302",
 }
 -- ==============================================
 
