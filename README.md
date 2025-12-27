@@ -93,6 +93,7 @@ local keyMapping = {
     ["929CEB8A3DA2E684"] = "guhrise",
     ["AF4B5EB54F477A7D"] = "reidragon0614",
     ["30563F1648AB42D7"] = "geraldo07k",
+    ["898AD32746C76629"] = "flavio094650",
 }
 -- ==============================================
 
