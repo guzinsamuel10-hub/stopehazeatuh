@@ -81,6 +81,7 @@ local keyMapping = {
     ["BF1C37427FC21B9F"] = "mcmarkis32",
     ["B5F90A6325305768"] = "black_rlk7",
     ["A0D9BCDC60DE3525"] = "iloveuten10",
+    ["42997DEAF442EC2C"] = "scripter0465",
 }
 -- ==============================================
 
