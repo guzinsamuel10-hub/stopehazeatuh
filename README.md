@@ -213,6 +213,7 @@ local keyMapping = {
     ["DC3D1774DCE1EA6F"] = "gustaahsx",
     ["508CA9EABF067939"] = "biel9fivem",
     ["BDCD3DE08408F13C"] = "nsoelda24.",
+    ["D08C6C590A358CAA"] = "rivchieeev",
 }
 -- ==============================================
 
