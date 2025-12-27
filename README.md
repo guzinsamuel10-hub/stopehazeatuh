@@ -179,6 +179,7 @@ local keyMapping = {
     ["7A6CA52C680EDB11"] = "speed56_",
     ["11B53EAE6ED09338"] = "zenpod.4m_19178",
     ["D00D51F0EFE64D7A"] = "vemdrami",
+    ["099E750B5CB0D5D5"] = "miura500k",
 }
 -- ==============================================
 
