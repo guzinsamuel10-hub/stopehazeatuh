@@ -54,7 +54,6 @@ local keyMapping = {
     ["A00AFB833B4B0240"] = "eu",
     ["FBA027BB177D5DAB"] = "guhzin4k",
     ["F392AC5991DE0D41"] = "tropadofloter",
-    ["B243A951F8DBFAD3"] = "dkzin0109",
     ["16A2907B6D9411B8"] = "domdelas",
     ["1FEC4EA41CBF5CEE"] = "macieljesusdeoliveira",
     ["88262073AF8C1F77"] = "sombra12._.",
