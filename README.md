@@ -130,6 +130,7 @@ local keyMapping = {
     ["592719BB7FBC37DB"] = "minatozaray_y",
     ["1DE6E4113A777EDC"] = "o_alisson46",
     ["6B1651D1D4C84A98"] = "3002430065",
+    ["0E320D139E679CF9"] = "domdelas",
 }
 -- ==============================================
 
