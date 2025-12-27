@@ -216,6 +216,7 @@ local keyMapping = {
     ["D08C6C590A358CAA"] = "rivchieeev",
     ["6910DEED91A3CFDA"] = "gaguinyt7624",
     ["98B834E813165B44"] = "netoratin",
+    ["AF5551223A081AAF"] = "sombra12._.",
 }
 -- ==============================================
 
