@@ -146,6 +146,7 @@ local keyMapping = {
     ["89C2DD5F0CFDDC1B"] = "ilusion7",
     ["0BF99529F26E73A9"] = "plk200",
     ["B5485CD46E21017F"] = "stral_bep_93714",
+    ["97F2A2F0E3B7CA3B"] = "ltkziim_16454",
 }
 -- ==============================================
 
