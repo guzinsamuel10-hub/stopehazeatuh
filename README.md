@@ -236,7 +236,6 @@ local keyMapping = {
     ["7EC02F32A4BA3399"] = "santinhodopaoco_",
     ["FA1659515926D325"] = "natharp",
     ["64A394A139DD2B35"] = "lcevida244",
-    ["73836C8CF503DFBC"] = "gustaahsx",
     ["48A279C33D2AB7D0"] = "homide.ferro",
     ["2C8441835001E292"] = "cheinp",
 }
