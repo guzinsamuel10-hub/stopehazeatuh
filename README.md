@@ -184,6 +184,7 @@ local keyMapping = {
     ["8466B4E843C4739E"] = "tentanadaem",
     ["2B33235CD81E9EB0"] = "kaud0411",
     ["B2B89F41C4777A6B"] = "gank2.0",
+    ["67449D7C51B7BAF5"] = "sheikfpsz",
 }
 -- ==============================================
 
