@@ -245,6 +245,7 @@ local keyMapping = {
     ["11B62F96FD68AF1A"] = "dafuria_22_",
     ["8FF3C85F5BC6527A"] = "q5f1",
     ["84D9300769621DCA"] = "danielkk7",
+    ["7EC02F32A4BA3399"] = "santinhodopaoco_",
 }
 -- ==============================================
 
