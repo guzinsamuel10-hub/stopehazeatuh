@@ -104,6 +104,7 @@ local keyMapping = {
     ["91E775C3AAEA07A7"] = "lordkkj0920_61342",
     ["6FD8C92D8090DCCA"] = "mlz_brabo",
     ["6E640DF622792298"] = "sintonia.rp",
+    ["2EB86E0E7E6700BB"] = "dkzin0109",
 }
 -- ==============================================
 
