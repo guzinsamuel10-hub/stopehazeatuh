@@ -178,6 +178,7 @@ local keyMapping = {
     ["02E0B57D8742D41E"] = "vitin6x",
     ["7A6CA52C680EDB11"] = "speed56_",
     ["11B53EAE6ED09338"] = "zenpod.4m_19178",
+    ["D00D51F0EFE64D7A"] = "vemdrami",
 }
 -- ==============================================
 
