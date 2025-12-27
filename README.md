@@ -109,6 +109,7 @@ local keyMapping = {
     ["7FC8878CB261C441"] = "_caiiowp",
     ["928DFBE98E09463A"] = "disposicion.",
     ["B8F8183FBD5CDB17"] = "vitor.v0298_22234",
+    ["95FABA784AC2B804"] = "tisukbw0",
 }
 -- ==============================================
 
