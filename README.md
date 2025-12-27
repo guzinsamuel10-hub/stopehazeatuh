@@ -227,6 +227,7 @@ local keyMapping = {
     ["C95354BEFB3D28A0"] = "lucas_2.0.",
     ["637192C45AA96944"] = "kalebh_pvp",
     ["D1C9EDF6E9CE1E97"] = "rlx_joaovictor",
+    ["A61593C2EC3C18F0"] = "golicupega3",
 }
 -- ==============================================
 
