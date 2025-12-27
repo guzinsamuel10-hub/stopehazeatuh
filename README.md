@@ -190,6 +190,7 @@ local keyMapping = {
     ["B8A4D62C62C5D957"] = "aruan_xit",
     ["1A21CABF9D7133FC"] = "warlle.yxx0728",
     ["6D5E98E57003EEB6"] = "rafael35097",
+    ["0CFC43655E7CA7E4"] = "matheusgames5789",
 }
 -- ==============================================
 
