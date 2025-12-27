@@ -171,6 +171,7 @@ local keyMapping = {
     ["14B39D0510D3751F"] = "snowzinxit77",
     ["FB11F10F66DE5E4F"] = "macieljesusdeoliveira",
     ["476C30220DCE4DFD"] = "buzanfudodaraia",
+    ["65763DF815FD03CF"] = "tg_rlk_33118",
 }
 -- ==============================================
 
