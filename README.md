@@ -185,6 +185,7 @@ local keyMapping = {
     ["2B33235CD81E9EB0"] = "kaud0411",
     ["B2B89F41C4777A6B"] = "gank2.0",
     ["67449D7C51B7BAF5"] = "sheikfpsz",
+    ["B0630FDDFD181B2B"] = "max_deorlanda_81642",
 }
 -- ==============================================
 
