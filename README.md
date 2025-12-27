@@ -143,6 +143,7 @@ local keyMapping = {
     ["0097ECF2771AC7B8"] = "gabrieldaniellweller",
     ["891D4C30641F9AAB"] = "lordsx_155",
     ["8FBB2F7D845E4FA1"] = "kiler09011_13798",
+    ["89C2DD5F0CFDDC1B"] = "ilusion7",
 }
 -- ==============================================
 
