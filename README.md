@@ -124,6 +124,7 @@ local keyMapping = {
     ["4F6C9F9E7EFF3D68"] = "brabo.yt.ns7467",
     ["3645FFE9D47838DA"] = "pequeno_enx",
     ["692926998010D466"] = "dark7ven",
+    ["E3E75B0AD300348B"] = "fabziin",
 }
 -- ==============================================
 
