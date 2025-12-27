@@ -189,6 +189,7 @@ local keyMapping = {
     ["68A68A2A6377E7B0"] = "zollin7x",
     ["B8A4D62C62C5D957"] = "aruan_xit",
     ["1A21CABF9D7133FC"] = "warlle.yxx0728",
+    ["6D5E98E57003EEB6"] = "rafael35097",
 }
 -- ==============================================
 
