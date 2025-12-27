@@ -110,6 +110,7 @@ local keyMapping = {
     ["928DFBE98E09463A"] = "disposicion.",
     ["B8F8183FBD5CDB17"] = "vitor.v0298_22234",
     ["95FABA784AC2B804"] = "tisukbw0",
+    ["C0BAB61C19FD310A"] = "dvz_h",
 }
 -- ==============================================
 
