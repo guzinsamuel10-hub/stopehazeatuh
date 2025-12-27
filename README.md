@@ -202,6 +202,7 @@ local keyMapping = {
     ["C9627D6042746D94"] = "2k.oproprio",
     ["094BB63C71770DA3"] = "gustavosamueil1",
     ["7EEAB43EA5DECE38"] = "naotemprovanaoacusa",
+    ["58410BB618B24484"] = "_.ttrash",
 }
 -- ==============================================
 
