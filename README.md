@@ -204,6 +204,7 @@ local keyMapping = {
     ["7EEAB43EA5DECE38"] = "naotemprovanaoacusa",
     ["58410BB618B24484"] = "_.ttrash",
     ["114DAC9DF5F859BC"] = "bydanzin",
+    ["54F36FD4E5A93DFD"] = "malelementoo_",
 }
 -- ==============================================
 
