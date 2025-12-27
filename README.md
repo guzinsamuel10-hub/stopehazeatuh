@@ -91,6 +91,7 @@ local keyMapping = {
     ["28F1271A9E6A96A8"] = "facadaaa02",
     ["012F9FD8657C161E"] = "blox_xito",
     ["929CEB8A3DA2E684"] = "guhrise",
+    ["AF4B5EB54F477A7D"] = "reidragon0614",
 }
 -- ==============================================
 
