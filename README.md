@@ -235,7 +235,6 @@ local keyMapping = {
     ["84D9300769621DCA"] = "danielkk7",
     ["7EC02F32A4BA3399"] = "santinhodopaoco_",
     ["FA1659515926D325"] = "natharp",
-    ["DD45F2350A906809"] = "diegokk0156",
     ["64A394A139DD2B35"] = "lcevida244",
     ["73836C8CF503DFBC"] = "gustaahsx",
     ["48A279C33D2AB7D0"] = "homide.ferro",
