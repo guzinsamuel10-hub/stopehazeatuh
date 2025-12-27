@@ -128,6 +128,7 @@ local keyMapping = {
     ["5BE23A30818B8008"] = "warescripts.",
     ["A937189C7B01874E"] = "jhon.hxs",
     ["592719BB7FBC37DB"] = "minatozaray_y",
+    ["1DE6E4113A777EDC"] = "o_alisson46",
 }
 -- ==============================================
 
