@@ -107,6 +107,7 @@ local keyMapping = {
     ["2EB86E0E7E6700BB"] = "dkzin0109",
     ["45A9B842B98E16FE"] = "usuarionaoencontrado777",
     ["7FC8878CB261C441"] = "_caiiowp",
+    ["928DFBE98E09463A"] = "disposicion.",
 }
 -- ==============================================
 
